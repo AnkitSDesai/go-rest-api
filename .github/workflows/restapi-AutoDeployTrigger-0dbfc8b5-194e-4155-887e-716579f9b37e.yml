@@ -54,6 +54,7 @@ jobs:
       - name: Deploy to containerapp
         uses: azure/CLI@v1
         with:
+          azcliversion: latest
           inlineScript: |
             az config set extension.use_dynamic_install=yes_without_prompt
             az containerapp registry set -n restapi -g ankitdesai_rg_9608 --server ca4bfb28c94bacr.azurecr.io --username  ${{ secrets.RESTAPI_REGISTRY_USERNAME }} --password ${{ secrets.RESTAPI_REGISTRY_PASSWORD }}
